@@ -49,24 +49,22 @@ function ReviewCard({ img, name, username, body }) {
     <figure
       className={cn(
         "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-5 shadow-sm transition-colors",
-        // light
-        "border-brand-dark/20 bg-white hover:bg-brand/10",
-        // dark
-        "dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
+        "border-brand-dark/20"
       )}
+      style={{ backgroundColor: '#003000' }}
     >
       <div className="flex flex-row items-center gap-2">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-brand-dark dark:text-white">
+          <figcaption className="text-sm font-medium text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-brand-dark/70 dark:text-gray-400">
+          <p className="text-xs font-medium text-white/70">
             {username}
           </p>
         </div>
       </div>
-      <blockquote className="mt-3 text-sm leading-relaxed text-brand-dark/80 dark:text-gray-200">
+      <blockquote className="mt-3 text-sm leading-relaxed text-white/90">
         {body}
       </blockquote>
     </figure>
@@ -87,13 +85,13 @@ export default function OurTestimonialSection() {
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
+        <Marquee reverse pauseOnHover className="mt-4 [--duration:20s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-bg to-transparent dark:from-gray-900"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-bg to-transparent dark:from-gray-900"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-bg to-transparent "></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-bg to-transparent"></div>
       </div>
     </section>
   );
