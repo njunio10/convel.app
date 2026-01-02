@@ -4,6 +4,8 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import HeroSection from "./sections/hero-section";
 import HowItWorksSection from "./sections/how-it-works-section";
+import BenefitsSection from "./sections/benefits-section";
+import FeaturedTestimonialSection from "./sections/featured-testimonial-section";
 import MeetOurTeamSection from "./sections/meet-our-team-section";
 import OurTestimonialsSection from "./sections/our-testimonials-section";
 import OurPricingSection from "./sections/our-pricing-section";
@@ -16,9 +18,11 @@ export default function App() {
       <LenisScroll />
       <Banner />
       <Navbar />
-      <main className="px-4 md:px-16 lg:px-24">
+      <main className="">
         <HeroSection />
+        <BenefitsSection />
         <HowItWorksSection />
+        <FeaturedTestimonialSection />
         <MeetOurTeamSection />
         <OurTestimonialsSection />
         <OurPricingSection />

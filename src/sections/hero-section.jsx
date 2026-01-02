@@ -143,7 +143,7 @@ export default function HeroSection() {
 
       <div
         ref={containerRef}
-        className="mt-10 w-full max-w-7xl"
+        className="mt-10 w-full max-w-5xl"
         style={{
           perspective: "1000px",
           transformStyle: "preserve-3d",
@@ -151,7 +151,7 @@ export default function HeroSection() {
       >
         <img
           className="w-full rounded-xl border border-brand-dark/15 shadow-sm will-change-transform"
-          src="/assets/image.png"
+          src="/assets/sistema.png"
           alt="Visão do painel de controle do sistema"
           loading="lazy"
           style={{

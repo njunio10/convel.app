@@ -57,7 +57,7 @@ export default function HowItWorksSection() {
         />
       </BlurFade>
 
-      <div className="mt-15 grid w-full max-w-7xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-15 grid w-full max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((item, index) => (
           <BlurFade key={index} delay={0.2 + index * 0.08}>
             <div className="h-full rounded-[14px] bg-accent/40 p-0.5 pt-4 transition-all duration-300 hover:-translate-y-1">

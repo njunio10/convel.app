@@ -42,7 +42,7 @@ export default function Navbar() {
       >
         <a href="https://prebuiltui.com?utm_source=slidex">
           <img
-            src="/assets/Principal_medio.png"
+            src="/assets/Principal.png"
             alt="logo"
             className="h-10 w-auto"
             width={205}

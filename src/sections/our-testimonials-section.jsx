@@ -48,10 +48,9 @@ function ReviewCard({ img, name, username, body }) {
   return (
     <figure
       className={cn(
-        "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-5 shadow-sm transition-colors",
-        "border-brand-dark/20"
+        "relative h-full w-60 sm:w-72 lg:w-80 cursor-pointer overflow-hidden rounded-xl border p-5 sm:p-6 shadow-sm transition-transform transition-colors duration-300",
+        "border-brand-dark/20 bg-[#c3f5bf] hover:-translate-y-1"
       )}
-      style={{ backgroundColor: '#003000' }}
     >
       <div className="flex flex-row items-center gap-2">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
@@ -73,13 +72,13 @@ function ReviewCard({ img, name, username, body }) {
 
 export default function OurTestimonialSection() {
   return (
-    <section className="flex flex-col items-center justify-center">
+    <section className="flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       <SectionTitle
         title="Oque nossos clientes dizem"
         description="Vários clientes já transformaram sua gestão com a Convel. Confira algumas avaliações de nossos clientes."
       />
 
-      <div className="relative mt-10 flex w-full flex-col items-center justify-center overflow-hidden py-6">
+      <div className="relative mt-10 flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden py-6">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />

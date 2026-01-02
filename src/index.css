@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
   /* Brand palette */
-  --color-bg: #e4e7dd; /* neutro de fundo */
+  --color-bg: #ffffff; /* neutro de fundo */
   --color-brand: #b1ff00; /* destaque/CTA */
   --color-accent: #6fe965; /* apoio/secondary */
   --color-brand-dark: #003000; /* base sólida */
@@ -12,6 +12,7 @@
 
 body {
   @apply bg-bg text-brand-dark text-sm antialiased;
+  letter-spacing: -0.01em;
 }
 
 button {
