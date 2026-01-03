@@ -22,9 +22,9 @@ export default function App() {
         <HeroSection />
         <BenefitsSection />
         <HowItWorksSection />
-        <FeaturedTestimonialSection />
         <MeetOurTeamSection />
         <OurTestimonialsSection />
+        <FeaturedTestimonialSection />
         <OurPricingSection />
         <FaqSection />
         <CallToActionSection />

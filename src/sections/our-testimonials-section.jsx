@@ -48,22 +48,20 @@ function ReviewCard({ img, name, username, body }) {
   return (
     <figure
       className={cn(
-        "relative h-full w-60 sm:w-72 lg:w-80 cursor-pointer overflow-hidden rounded-xl border p-5 sm:p-6 shadow-sm transition-transform transition-colors duration-300",
-        "border-brand-dark/20 bg-[#c3f5bf] hover:-translate-y-1"
+        "relative h-[171px] w-[400px] overflow-hidden rounded-[30px] border p-5 sm:p-6 shadow-sm duration-300",
+        "border-brand-dark/20 bg-[#c3f5bf]"
       )}
     >
       <div className="flex flex-row items-center gap-2">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-white">
+          <figcaption className="text-sm font-medium text-[#000300]">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-white/70">
-            {username}
-          </p>
+          <p className="text-xs font-medium text-[#000300]">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-3 text-sm leading-relaxed text-white/90">
+      <blockquote className="mt-3 text-sm leading-relaxed text-[#000300]">
         {body}
       </blockquote>
     </figure>
@@ -73,18 +71,23 @@ function ReviewCard({ img, name, username, body }) {
 export default function OurTestimonialSection() {
   return (
     <section className="flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <SectionTitle
-        title="Oque nossos clientes dizem"
-        description="Vários clientes já transformaram sua gestão com a Convel. Confira algumas avaliações de nossos clientes."
-      />
+      <div className="mt-15 w-full max-w-6xl grid gap-6 md:grid-cols-2 items-start">
+        <h3 className="heading-2 text-brand-dark text-left">
+          O que nossos clientes dizem
+        </h3>
+        <p className="subtitle text-brand-dark/70 text-left md:pl-6">
+          Vários clientes já transformaram sua gestão com a Convel. Confira
+          algumas avaliações de nossos clientes.
+        </p>
+      </div>
 
       <div className="relative mt-10 flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden py-6">
-        <Marquee pauseOnHover className="[--duration:20s]">
+        <Marquee className="[--duration:30s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="mt-4 [--duration:20s]">
+        <Marquee reverse className="mt-4 [--duration:30s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}

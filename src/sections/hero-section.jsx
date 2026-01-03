@@ -125,7 +125,7 @@ export default function HeroSection() {
                 </p>
             </a> */}
 
-      <h1 className="mt-15 max-w-3xl scale-105 bg-gradient-to-r from-brand-dark to-accent bg-clip-text text-center heading-hero text-transparent md:scale-100">
+      <h1 className="mt-15 max-w-3xl scale-105 bg-gradient-to-r from-brand-dark to-accent bg-clip-text text-center heading-hero text-[64px] text-transparent md:scale-100">
         Controle total de etiquetas e validade na sua cozinha.
       </h1>
       <p className="mt-2 max-w-xl text-center subtitle text-brand-dark">

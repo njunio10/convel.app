@@ -1,82 +1,49 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { HeroVideoDialog } from "@/registry/magicui/hero-video-dialog";
 
 export default function FeaturedTestimonialSection() {
   return (
-    <section className="mt-20 flex w-full justify-center">
-      <div className="relative flex w-full max-w-6xl flex-col gap-8 rounded-3xl bg-[#c3f5bf] px-6 py-8 text-white shadow-sm sm:px-8 md:flex-row md:items-center md:gap-10 md:px-10 md:py-10">
-        {/* Cartão de vídeo / imagem à esquerda */}
-        <div className="relative w-full overflow-hidden rounded-2xl bg-black/40 md:w-[48%]">
-          <img
-            src="/assets/image.png"
-            alt="Cliente da Convel sorrindo em ambiente de trabalho"
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-          {/* Overlay escuro suave */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
-        </div>
+    <section className="mt-20 w-full">
+      <div className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-[#c3f5bf] shadow-sm overflow-hidden rounded-[30px]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-10 sm:px-8 md:flex-row md:items-center md:gap-12 md:px-10">
+          {/* Mídia à esquerda */}
+          <div className="relative w-full overflow-hidden md:w-[48%] rounded-[30px]">
+            <HeroVideoDialog
+              className="w-full"
+              thumbnailClassName="w-[480px] h-[400px] rounded-[30px]"
+              animationStyle="top-in-bottom-out"
+              videoSrc="/assets/depoimento.mp4"
+              thumbnailSrc="/assets/jaldete.png"
+              thumbnailAlt="Cliente da Convel sorrindo em ambiente de trabalho"
+            />
+          </div>
 
-        {/* Texto / benefícios à direita */}
-        <div className="flex w-full flex-col justify-center md:w-[52%]">
-          <p className="heading-2 text-left text-white">
-            Transforme a gestão
-            <br />
-            do seu restaurante
-          </p>
-
-          <div className="mt-6 space-y-5 text-sm md:text-base">
-            <div className="flex gap-3">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-              <div>
-                <p className="font-semibold text-white">
-                  Reduza custos em até 30%
-                </p>
-                <p className="text-white/75">
-                  Controle preciso de estoque evita desperdícios e otimiza compras.
-                </p>
-              </div>
+          {/* Texto à direita */}
+          <div className="flex w-full flex-col justify-center md:w-[52%]">
+            {/* Selo / subtítulo */}
+            <div className="flex items-center gap-2 text-sm font-medium text-[#000300]">
+              <CheckCircle2 className="h-4 w-4" />
+              <span>Ouça quem já usa</span>
             </div>
 
-            <div className="flex gap-3">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-              <div>
-                <p className="font-semibold text-white">
-                  Economize 5 horas por semana
-                </p>
-                <p className="text-white/75">
-                  Automação de processos libera tempo para focar no que realmente importa.
-                </p>
-              </div>
-            </div>
+            {/* Citação principal */}
+            <h2 className="mt-4 text-xl font-semibold leading-snug text-[#000300] sm:text-2xl md:text-3xl">
+              “Com a Convel, finalmente parei de me preocupar com o fluxo de
+              caixa. Eu sei para onde meu dinheiro está indo — e estou realmente
+              economizando.”
+            </h2>
 
-            <div className="flex gap-3">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-              <div>
-                <p className="font-semibold text-white">
-                  Conformidade com a ANVISA
-                </p>
-                <p className="text-white/75">
-                  Evite multas e esteja sempre em conformidade com a vigilância sanitária.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-3">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
-              <div>
-                <p className="font-semibold text-white">
-                  Elimine erros manuais
-                </p>
-                <p className="text-white/75">
-                  Sistema integrado reduz falhas humanas e melhora a precisão.
-                </p>
-              </div>
-            </div>
+            {/* CTA */}
+            <a
+              href="#contato"
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border-2 border-[#000300] px-4 py-2 font-semibold text-[#000300] transition hover:-translate-y-0.5 hover:bg-[#000300] hover:text-[#c3f5bf]"
+            >
+              Fale com a gente
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
