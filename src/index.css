@@ -19,23 +19,30 @@ button {
   @apply cursor-pointer;
 }
 
-/* Tipografia padronizada */
-.heading-hero {
-  @apply text-4xl/10 md:text-6xl/16 font-bold;
-}
+@layer components {
+  /* Tipografia padronizada */
+  .heading-hero {
+    @apply text-4xl/10 md:text-6xl/16 font-bold;
+  }
 
-.heading-1 {
-  @apply text-3xl/10 md:text-5xl/14 font-bold;
-}
+  .heading-1 {
+    @apply text-3xl/10 md:text-5xl/14 font-bold;
+  }
 
-.heading-2 {
-  @apply text-2xl/9 md:text-4xl/12 font-semibold;
-}
+  .heading-2 {
+    @apply text-2xl/9 md:text-4xl/12 font-semibold;
+  }
 
-.heading-3 {
-  @apply text-xl/8 md:text-2xl/10 font-semibold;
-}
+  .heading-3 {
+    @apply text-xl/8 md:text-2xl/10 font-semibold;
+  }
 
-.subtitle {
-  @apply text-base/6 md:text-lg/7;
+  .subtitle {
+    @apply text-base/6 md:text-lg/7;
+  }
+
+  /* Container global com largura máxima de 1000px */
+  .container-1000 {
+    @apply max-w-[1000px] mx-auto px-4 md:px-0;
+  }
 }

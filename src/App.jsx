@@ -19,15 +19,17 @@ export default function App() {
       <Banner />
       <Navbar />
       <main className="">
-        <HeroSection />
-        <BenefitsSection />
-        <HowItWorksSection />
-        <MeetOurTeamSection />
-        <OurTestimonialsSection />
-        <FeaturedTestimonialSection />
-        <OurPricingSection />
-        <FaqSection />
-        <CallToActionSection />
+        <div className="container-1000">
+          <HeroSection />
+          <BenefitsSection />
+          <HowItWorksSection />
+          <MeetOurTeamSection />
+          <OurTestimonialsSection />
+          <FeaturedTestimonialSection />
+          <OurPricingSection />
+          <FaqSection />
+          <CallToActionSection />
+        </div>
       </main>
       <Footer />
     </>

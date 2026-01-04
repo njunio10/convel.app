@@ -4,7 +4,7 @@ import { HeroVideoDialog } from "@/registry/magicui/hero-video-dialog";
 export default function FeaturedTestimonialSection() {
   return (
     <section className="mt-20 w-full">
-      <div className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-[#c3f5bf] shadow-sm overflow-hidden rounded-[30px]">
+      <div className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-[#e4f3e3] shadow-sm overflow-hidden rounded-[30px]">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-10 sm:px-8 md:flex-row md:items-center md:gap-12 md:px-10">
           {/* Mídia à esquerda */}
           <div className="relative w-full overflow-hidden md:w-[48%] rounded-[30px]">

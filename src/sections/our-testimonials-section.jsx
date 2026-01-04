@@ -49,7 +49,7 @@ function ReviewCard({ img, name, username, body }) {
     <figure
       className={cn(
         "relative h-[171px] w-[400px] overflow-hidden rounded-[30px] border p-5 sm:p-6 shadow-sm duration-300",
-        "border-brand-dark/20 bg-[#c3f5bf]"
+        "border-brand-dark/20 bg-[#e4f3e3]"
       )}
     >
       <div className="flex flex-row items-center gap-2">

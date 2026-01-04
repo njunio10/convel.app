@@ -40,88 +40,90 @@ export default function Navbar() {
             : "bg-bg backdrop-blur-0"
         }`}
       >
-        <a href="https://prebuiltui.com?utm_source=slidex">
-          <img
-            src="/assets/Principal.png"
-            alt="logo"
-            className="h-10 w-auto"
-            width={205}
-            height={48}
-          />
-        </a>
+        <div className="container-1000 flex w-full items-center justify-between">
+          <a href="https://prebuiltui.com?utm_source=slidex">
+            <img
+              src="/assets/Principal.png"
+              alt="logo"
+              className="h-10 w-auto"
+              width={205}
+              height={48}
+            />
+          </a>
 
-        <div className="hidden items-center space-x-6 text-brand-dark/80 md:flex">
-          {links.map((link) =>
-            link.subLinks ? (
-              <div
-                key={link.name}
-                className="group relative"
-                onMouseEnter={() => setOpenDropdown(link.name)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <div className="flex cursor-pointer items-center gap-1 hover:text-brand-dark">
-                  {link.name}
-                  <ChevronDown
-                    className={`mt-px size-4 transition-transform duration-200 ${
-                      openDropdown === link.name ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-
+          <div className="hidden items-center space-x-6 text-brand-dark/80 md:flex">
+            {links.map((link) =>
+              link.subLinks ? (
                 <div
-                  className={`absolute top-6 left-0 z-40 w-lg rounded-md border border-brand-dark/10 bg-white p-3 shadow-lg transition-all duration-200 ease-in-out ${
-                    openDropdown === link.name
-                      ? "visible translate-y-0 opacity-100"
-                      : "invisible -translate-y-2 opacity-0"
-                  }`}
+                  key={link.name}
+                  className="group relative"
+                  onMouseEnter={() => setOpenDropdown(link.name)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <p>Explore our AI tools</p>
-                  <div className="mt-3 grid grid-cols-2 gap-2">
-                    {link.subLinks.map((sub) => (
-                      <a
-                        href={sub.href}
-                        key={sub.name}
-                        className="group/link flex items-center gap-2 rounded-md p-2 transition hover:bg-brand/10"
-                      >
-                        <div className="w-max gap-1 rounded-md bg-brand-dark p-2">
-                          <sub.icon className="size-4.5 text-white transition duration-300 group-hover/link:scale-110" />
-                        </div>
-                        <div>
-                          <p className="font-medium">{sub.name}</p>
-                          <p className="font-light text-brand-dark/70">
-                            {sub.description}
-                          </p>
-                        </div>
-                      </a>
-                    ))}
+                  <div className="flex cursor-pointer items-center gap-1 hover:text-brand-dark">
+                    {link.name}
+                    <ChevronDown
+                      className={`mt-px size-4 transition-transform duration-200 ${
+                        openDropdown === link.name ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+
+                  <div
+                    className={`absolute top-6 left-0 z-40 w-lg rounded-md border border-brand-dark/10 bg-white p-3 shadow-lg transition-all duration-200 ease-in-out ${
+                      openDropdown === link.name
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-2 opacity-0"
+                    }`}
+                  >
+                    <p>Explore our AI tools</p>
+                    <div className="mt-3 grid grid-cols-2 gap-2">
+                      {link.subLinks.map((sub) => (
+                        <a
+                          href={sub.href}
+                          key={sub.name}
+                          className="group/link flex items-center gap-2 rounded-md p-2 transition hover:bg-brand/10"
+                        >
+                          <div className="w-max gap-1 rounded-md bg-brand-dark p-2">
+                            <sub.icon className="size-4.5 text-white transition duration-300 group-hover/link:scale-110" />
+                          </div>
+                          <div>
+                            <p className="font-medium">{sub.name}</p>
+                            <p className="font-light text-brand-dark/70">
+                              {sub.description}
+                            </p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              <a
-                key={link.name}
-                href={link.href}
-                className="transition hover:text-brand-dark"
-              >
-                {link.name}
-              </a>
-            )
-          )}
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="transition hover:text-brand-dark"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
+          </div>
+
+          <a
+            href="/"
+            className="hidden rounded-full bg-brand-dark px-8 py-2.5 font-medium text-white transition hover:opacity-90 md:inline-block"
+          >
+            Fale Conosco{" "}
+          </a>
+
+          <button
+            onClick={() => setIsOpen(true)}
+            className="transition active:scale-90 md:hidden"
+          >
+            <MenuIcon className="size-6.5" />
+          </button>
         </div>
-
-        <a
-          href="/"
-          className="hidden rounded-full bg-brand-dark px-8 py-2.5 font-medium text-white transition hover:opacity-90 md:inline-block"
-        >
-          Fale Conosco{" "}
-        </a>
-
-        <button
-          onClick={() => setIsOpen(true)}
-          className="transition active:scale-90 md:hidden"
-        >
-          <MenuIcon className="size-6.5" />
-        </button>
       </nav>
 
       <div
