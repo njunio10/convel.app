@@ -45,4 +45,9 @@ button {
   .container-1000 {
     @apply max-w-[1000px] mx-auto px-4 md:px-0;
   }
+
+  /* Container com largura máxima de 1200px (para navbar 1200x45) */
+  .container-1200 {
+    @apply max-w-[1200px] mx-auto px-4 md:px-0;
+  }
 }

@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import HeroSection from "./sections/hero-section";
 import HowItWorksSection from "./sections/how-it-works-section";
 import BenefitsSection from "./sections/benefits-section";
+import TopicSection from "./sections/topic-section";
 import FeaturedTestimonialSection from "./sections/featured-testimonial-section";
 import MeetOurTeamSection from "./sections/meet-our-team-section";
 import OurTestimonialsSection from "./sections/our-testimonials-section";
@@ -22,6 +23,7 @@ export default function App() {
         <div className="container-1000">
           <HeroSection />
           <BenefitsSection />
+          <TopicSection />
           <HowItWorksSection />
           <MeetOurTeamSection />
           <OurTestimonialsSection />

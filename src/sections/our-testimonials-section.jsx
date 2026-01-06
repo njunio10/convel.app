@@ -70,18 +70,18 @@ function ReviewCard({ img, name, username, body }) {
 
 export default function OurTestimonialSection() {
   return (
-    <section className="flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="mt-20 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="mt-15 w-full max-w-6xl grid gap-6 md:grid-cols-2 items-start">
-        <h3 className="heading-2 text-brand-dark text-left">
+        <h3 className="heading-2 text-brand-dark text-left text-[48px]">
           O que nossos clientes dizem
         </h3>
-        <p className="subtitle text-brand-dark/70 text-left md:pl-6">
+        <p className="subtitle text-brand-dark/70 text-left md:pl-6 text-[18px]">
           Vários clientes já transformaram sua gestão com a Convel. Confira
           algumas avaliações de nossos clientes.
         </p>
       </div>
 
-      <div className="relative mt-10 flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden py-6">
+      <div className="relative flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden py-6">
         <Marquee className="[--duration:30s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />

@@ -40,18 +40,27 @@ export default function Navbar() {
             : "bg-bg backdrop-blur-0"
         }`}
       >
-        <div className="container-1000 flex w-full items-center justify-between">
-          <a href="https://prebuiltui.com?utm_source=slidex">
+        <div className="container-1200 flex w-full items-center justify-between">
+          <a
+            href="https://prebuiltui.com?utm_source=slidex"
+            className="flex items-center "
+          >
             <img
-              src="/assets/Principal.png"
+              src="/assets/Logo_Principal.png"
               alt="logo"
-              className="h-10 w-auto"
+              className="h-11 w-auto"
               width={205}
               height={48}
             />
-          </a>
-
-          <div className="hidden items-center space-x-6 text-brand-dark/80 md:flex">
+            <img
+              src="/assets/letra_escuro.png"
+              alt="logo"
+              className="h-7 w-auto"
+              width={205}
+              height={48}
+            />
+          </a>{" "}
+          <div className="text-[16px] hidden items-center space-x-6 text-[#003000] md:flex font-medium">
             {links.map((link) =>
               link.subLinks ? (
                 <div
@@ -109,14 +118,12 @@ export default function Navbar() {
               )
             )}
           </div>
-
           <a
             href="/"
-            className="hidden rounded-full bg-brand-dark px-8 py-2.5 font-medium text-white transition hover:opacity-90 md:inline-block"
+            className="hidden rounded-full bg-gradient-to-tr from-brand-dark via-brand-dark to-accent px-8 py-3 font-medium text-white md:inline-block text-[15px]"
           >
             Fale Conosco{" "}
           </a>
-
           <button
             onClick={() => setIsOpen(true)}
             className="transition active:scale-90 md:hidden"

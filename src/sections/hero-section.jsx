@@ -5,66 +5,53 @@ function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
-function useScrollParallax3D({
-  maxRotateX = 8, // deg
-  maxTranslateZ = 60, // px
-  baseRotateX = -4, // deg inicial para aparecer tilt mesmo sem scroll
-  baseTranslateZ = 24, // px inicial para perceber profundidade
+function useStraightenOnScroll3D({
+  initialRotateX = -12, // inclinação inicial (negativa inclina "para trás")
+  initialTranslateZ = 40, // profundidade inicial
+  distance = 200, // px de scroll para ficar totalmente reto
 } = {}) {
   const containerRef = useRef(null);
   const [transform, setTransform] = useState("translateZ(0px) rotateX(0deg)");
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
     let rafId = null;
-    const update = () => {
+
+    const compute = () => {
       rafId = null;
-      const rect = el.getBoundingClientRect();
-      const viewportHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      const elementCenterY = rect.top + rect.height / 2;
-      const viewportCenterY = viewportHeight / 2;
+      // Progresso do scroll de 0 (topo) até 1 (distance px)
+      const progress = clamp(window.scrollY / distance, 0, 1);
 
-      // Normaliza a distância ao centro do viewport em [-1, 1]
-      const normalizedY = clamp(
-        (viewportCenterY - elementCenterY) / (viewportHeight / 2),
-        -1,
-        1
-      );
+      // Interpola da inclinação inicial até ficar reto (0deg)
+      const rotateX = initialRotateX * (1 - progress);
+      const translateZ = initialTranslateZ * (1 - progress);
 
-      const rotateX = baseRotateX + normalizedY * maxRotateX; // inclina com base no scroll + base
-      const translateZ = baseTranslateZ + normalizedY * maxTranslateZ; // profundidade baseada no scroll + base
-
-      // Opcional: leve compensação para suavizar a percepção
       setTransform(`translateZ(${translateZ}px) rotateX(${rotateX}deg)`);
     };
 
-    const onScrollOrResize = () => {
+    const onScroll = () => {
       if (rafId) return;
-      rafId = requestAnimationFrame(update);
+      rafId = requestAnimationFrame(compute);
     };
 
-    update();
-    window.addEventListener("scroll", onScrollOrResize, { passive: true });
-    window.addEventListener("resize", onScrollOrResize);
+    // Estado inicial ao carregar no topo
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScrollOrResize);
-      window.removeEventListener("resize", onScrollOrResize);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
-  }, [maxRotateX, maxTranslateZ, baseRotateX, baseTranslateZ]);
+  }, [initialRotateX, initialTranslateZ, distance]);
 
   return { containerRef, transform };
 }
 
 export default function HeroSection() {
-  const { containerRef, transform } = useScrollParallax3D({
-    maxRotateX: 8,
-    maxTranslateZ: 60,
-    baseRotateX: -4,
-    baseTranslateZ: 24,
+  const { containerRef, transform } = useStraightenOnScroll3D({
+    initialRotateX: 8,
+    initialTranslateZ: 40,
+    distance: 200,
   });
   return (
     <section className="flex flex-col items-center justify-center">
@@ -135,9 +122,9 @@ export default function HeroSection() {
 
       <a
         href="/"
-        className="mt-8 flex items-center gap-2 rounded-full bg-brand-dark px-8 py-2.5 font-medium text-white transition hover:opacity-90"
+        className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-tr from-brand-dark via-brand-dark to-accent px-8 py-3 font-medium text-white transition hover:opacity-90 "
       >
-        <span>Faça um orçamento</span>
+        <span className="text-white text-[15px]">Faça um orçamento</span>
         <ArrowRightIcon className="size-5" />
       </a>
 
@@ -151,13 +138,18 @@ export default function HeroSection() {
       >
         <img
           className="w-full rounded-xl border border-brand-dark/15 shadow-sm will-change-transform"
-          src="/assets/sistema.png"
+          src="/assets/sistema3.png"
           alt="Visão do painel de controle do sistema"
           loading="lazy"
           style={{
+            height: 497,
             transform,
             transformOrigin: "center",
             transition: "transform 600ms cubic-bezier(.22,1,.36,1)",
+            // WebkitMaskImage:
+            //   "linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 90px), rgba(0,0,0,0) 100%)",
+            // maskImage:
+            //   "linear-gradient(to bottom, rgba(0,0,0,1) calc(100% - 90px), rgba(0,0,0,0) 100%)",
           }}
         />
       </div>

@@ -52,11 +52,11 @@ export default function HowItWorksSection() {
       <BlurFade delay={0.1}>
         <SectionTitle
           title={
-            <>
+            <h3 className="heading-2 text-center text-[#000300] text-[48px]">
               Tudo que você precisa para
               <br />
-              gerenciar seu restaurante.
-            </>
+              gerenciar seu restaurante
+            </h3>
           }
           // description="Tudo que você precisa para gerenciar seu restaurante de forma profissional e eficiente."
         />
