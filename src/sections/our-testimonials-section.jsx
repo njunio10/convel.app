@@ -71,7 +71,7 @@ function ReviewCard({ img, name, username, body }) {
 export default function OurTestimonialSection() {
   return (
     <section className="mt-20 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="mt-15 w-full max-w-6xl grid gap-6 md:grid-cols-2 items-start">
+      <div className="mt-15 w-[1000px] grid gap-6 md:grid-cols-2 items-start">
         <h3 className="heading-2 text-brand-dark text-left text-[48px]">
           O que nossos clientes dizem
         </h3>
@@ -81,19 +81,19 @@ export default function OurTestimonialSection() {
         </p>
       </div>
 
-      <div className="relative flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden py-6">
-        <Marquee className="[--duration:30s]">
+      <div className="relative flex  w-[1000px] flex-col items-center justify-center overflow-hidden py-6">
+        <Marquee className="[--duration:40s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse className="mt-4 [--duration:30s]">
+        <Marquee reverse className="mt-4 [--duration:40s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-bg to-transparent "></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-bg to-transparent"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 md:w-16 lg:w-24 bg-gradient-to-r from-bg to-transparent "></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-12 md:w-16 lg:w-24 bg-gradient-to-l from-bg to-transparent"></div>
       </div>
     </section>
   );
