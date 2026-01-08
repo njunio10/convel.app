@@ -7,7 +7,7 @@ export default function TopicSection() {
       <div className="w-full max-w-6xl">
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
           <h3 className="heading-2 text-left text-[#003000] text-[42px] leading-[1.02] md:col-span-7 md:text-[48px]">
-            Transforme o seu restaurante.
+            Transforme o seu restaurante
           </h3>
           <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
             Veja tudo que você precisa para transformar a gestão do seu
