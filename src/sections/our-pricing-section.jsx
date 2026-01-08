@@ -46,7 +46,10 @@ export default function OurPricingSection() {
   ];
 
   return (
-    <section id="pricing" className="flex flex-col items-center justify-center">
+    <section
+      id="pricing"
+      className="mt-27 flex flex-col items-center justify-center"
+    >
       <SectionTitle
         title="Our Pricing Plan"
         description="Our pricing plans are affordable and flexible, catering to all budgets. Choose the plan that suits your needs best."

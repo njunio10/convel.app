@@ -7,6 +7,7 @@ import {
   FileVideo,
   AudioLines,
   LightbulbIcon,
+  ArrowUpRight,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -35,9 +36,7 @@ export default function Navbar() {
     <>
       <nav
         className={`sticky top-0 z-50 flex w-full items-center justify-between border-b border-brand-dark/20  px-4 py-3.5 md:px-16 lg:px-24 transition-colors duration-300 ${
-          hasScrolled
-            ? "bg-transparent backdrop-blur-md"
-            : "bg-bg backdrop-blur-0"
+          hasScrolled ? "bg-bg/80 backdrop-blur-md" : "bg-bg backdrop-blur-0"
         }`}
       >
         <div className="container-1200 flex w-full items-center justify-between">
@@ -111,7 +110,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="transition hover:text-brand-dark"
+                  className="transition hover:text-[#67d65d]"
                 >
                   {link.name}
                 </a>
@@ -120,9 +119,10 @@ export default function Navbar() {
           </div>
           <a
             href="/"
-            className="hidden rounded-full bg-gradient-to-tr from-brand-dark via-brand-dark to-accent px-8 py-3 font-medium text-white md:inline-block text-[15px]"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] text-[15px] transition-colors hover:bg-[#d6f9d3] group"
           >
-            Fale Conosco{" "}
+            Fale Conosco
+            <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
           </a>
           <button
             onClick={() => setIsOpen(true)}
@@ -175,7 +175,7 @@ export default function Navbar() {
             ) : (
               <a
                 href={link.href}
-                className="block text-brand-dark transition hover:text-brand-dark"
+                className="block text-brand-dark transition-colors hover:text-[#c3f5bf]"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

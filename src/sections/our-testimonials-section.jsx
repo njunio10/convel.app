@@ -2,42 +2,55 @@ import SectionTitle from "../components/section-title";
 import { cn } from "../lib/utils";
 import { Marquee } from "../components/marquee";
 
+function QuoteIcon({ className }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path d="M10.4 6C7.42 6 5 8.42 5 11.4c0 2.98 2.42 5.4 5.4 5.4.39 0 .77-.04 1.13-.13-.25 1.47-1.17 2.75-2.47 3.56-.35.22-.28.75.14.86l2.74.68c.16.04.33 0 .46-.11 2.06-1.85 3.28-4.53 3.28-7.36C15.68 9.99 13.25 6 10.4 6zm11.2 0c-2.98 0-5.4 2.42-5.4 5.4 0 2.98 2.42 5.4 5.4 5.4.39 0 .77-.04 1.13-.13-.25 1.47-1.17 2.75-2.47 3.56-.35.22-.28.75.14.86l2.74.68c.16.04.33 0 .46-.11 2.06-1.85 3.28-4.53 3.28-7.36C26.88 9.99 24.45 6 21.6 6z" />
+    </svg>
+  );
+}
+
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Jaldete T.",
+    username: "Thiosti Restaurante",
+    body: "I've never seen anything like this before. It's amazing.",
+    img: "/assets/jaldete.png",
   },
   {
-    name: "Jill",
-    username: "@jill",
+    name: "Juliana B.",
+    username: "Le Pacha Restaurante",
     body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    img: "/assets/jaldete.png",
   },
   {
-    name: "John",
-    username: "@john",
+    name: "João B.",
+    username: "Café da Vila",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    img: "/assets/jaldete.png",
   },
   {
-    name: "Jane",
-    username: "@jane",
+    name: "Marcos B.",
+    username: "Pizzaria da Vila",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
+    img: "/assets/jaldete.png",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
+    name: "Maria B.",
+    username: "Bar da Vila",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
+    img: "/assets/jaldete.png",
   },
   {
-    name: "James",
-    username: "@james",
+    name: "Pedro B.",
+    username: "Bar do Pedro",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
+    img: "/assets/jaldete.png",
   },
 ];
 
@@ -48,46 +61,60 @@ function ReviewCard({ img, name, username, body }) {
   return (
     <figure
       className={cn(
-        "relative h-[171px] w-[400px] overflow-hidden rounded-[30px] border p-5 sm:p-6 shadow-sm duration-300",
-        "border-brand-dark/20 bg-[#e4f3e3]"
+        "relative h-[171px] w-[400px] overflow-hidden rounded-[30px]  p-5 sm:p-6 shadow-sm duration-300",
+        "bg-[#c3f5bf]"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-[#000300]">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium text-[#000300]">{username}</p>
+      <div className="h-full flex-col justify-between">
+        <div className="flex flex-row items-start gap-3">
+          <QuoteIcon
+            className="w-14 h-14 text-[#003000] opacity-20 rotate-180 shrink-0"
+            aria-hidden="true"
+          />
+          <blockquote className=" text-[#003000] font-semibold text-[18px]">
+            {body}
+          </blockquote>
+        </div>
+        <div className=" mt-4 flex items-center gap-2">
+          <img
+            className="rounded-full"
+            width="40"
+            height="40"
+            alt=""
+            src={img}
+          />
+          <div className="flex flex-col">
+            <figcaption className=" font-semibold text-[#003000] text-[15px]">
+              {name}
+            </figcaption>
+            <p className="font-medium text-[#003000] text-[13px]">{username}</p>
+          </div>
         </div>
       </div>
-      <blockquote className="mt-3 text-sm leading-relaxed text-[#000300]">
-        {body}
-      </blockquote>
     </figure>
   );
 }
 
 export default function OurTestimonialSection() {
   return (
-    <section className="mt-20 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="mt-15 w-[1000px] grid gap-6 md:grid-cols-2 items-start">
-        <h3 className="heading-2 text-brand-dark text-left text-[48px]">
+    <section className="mt-27 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="mt-15 w-[1000px] grid gap-6 md:grid-cols-12 md:items-start md:gap-12">
+        <h3 className="heading-2 text-brand-dark text-left text-[48px] md:col-span-7">
           O que nossos clientes dizem
         </h3>
-        <p className="subtitle text-brand-dark/70 text-left md:pl-6 text-[18px]">
+        <p className="subtitle text-[#003000] text-left text-[18px] md:col-start-9 md:col-span-4 md:mt-1">
           Vários clientes já transformaram sua gestão com a Convel. Confira
-          algumas avaliações de nossos clientes.
+          algumas avaliações parceiras.
         </p>
       </div>
 
       <div className="relative flex  w-[1000px] flex-col items-center justify-center overflow-hidden py-6">
-        <Marquee className="[--duration:40s]">
+        <Marquee className="[--duration:60s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}
         </Marquee>
-        <Marquee reverse className="mt-4 [--duration:40s]">
+        <Marquee reverse className="mt-4 [--duration:60s]">
           {secondRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
           ))}

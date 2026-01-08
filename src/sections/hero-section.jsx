@@ -1,4 +1,10 @@
-import { ArrowRightIcon, CheckIcon, ChevronRight } from "lucide-react";
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  ChevronRight,
+  ArrowRight,
+  ArrowUpRight,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 function clamp(value, min, max) {
@@ -112,20 +118,24 @@ export default function HeroSection() {
                 </p>
             </a> */}
 
-      <h1 className="mt-15 max-w-3xl scale-105 bg-gradient-to-r from-brand-dark to-accent bg-clip-text text-center heading-hero text-[64px] text-transparent md:scale-100">
+      {/* <h1 className="mt-15 max-w-3xl scale-105 bg-gradient-to-r from-[#003000] to-[#6fe965] bg-clip-text text-center heading-hero text-[64px] text-transparent md:scale-100">
+        Controle total de etiquetas e validade na sua cozinha.
+      </h1> */}
+
+      <h1 className="mt-15 max-w-3xl scale-105 bg-[#003000]  bg-clip-text text-center heading-hero text-[64px] text-transparent md:scale-100">
         Controle total de etiquetas e validade na sua cozinha.
       </h1>
-      <p className="mt-2 max-w-xl text-center subtitle text-brand-dark">
+      <p className="mt-4 max-w-xl text-center subtitle text-[#003000]">
         Imprima etiquetas, controle a validade dos alimentos e gere tabelas
         nutricionais com segurança, organização e tranquilidade.
       </p>
 
       <a
         href="/"
-        className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-tr from-brand-dark via-brand-dark to-accent px-8 py-3 font-medium text-white transition hover:opacity-90 "
+        className="group mt-8 flex items-center gap-2 rounded-full bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] transition-colors hover:bg-[#d6f9d3] "
       >
-        <span className="text-white text-[15px]">Faça um orçamento</span>
-        <ArrowRightIcon className="size-5" />
+        <span className="text-[#003000] text-[15px]">Faça um orçamento</span>
+        <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
       </a>
 
       <div
