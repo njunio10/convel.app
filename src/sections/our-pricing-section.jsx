@@ -1,33 +1,40 @@
 import SectionTitle from "../components/section-title";
-import { CheckIcon } from "lucide-react";
+import { BlurFade } from "../components/blur-fade";
+import { CheckIcon, Dot } from "lucide-react";
 
 export default function OurPricingSection() {
   const data = [
     {
-      title: "Starter Plan",
-      description: "Perfect for small business and personal use",
+      title: "Profissional",
+      description:
+        "Perfeito para restaurantes em crescimento e pequenas redes de restaurantes",
       price: "$19",
       buttonText: "Get Started",
       features: [
-        "Create up to 10 free projects",
-        "Get 10 AI tasks monthly",
-        "Generate simple AI text content",
-        "Access a basic chatbot tool",
-        "Receive email-based support only",
+        "Impressão de etiquetas básicas",
+        "Impressão de informações nutricionais",
+        "Suporte 7 dias por semana",
+        "Cadastro de fornecedores",
+        "Controle de produtos",
+        "Relatórios Inteligentes",
+        "Comodato de impressora",
       ],
     },
     {
-      title: "Pro Plan",
-      description: "Perfect for medium business and personal use",
+      title: "Enterprise",
+      description:
+        "Para grandes operações e redes de restaurantes com muitos estabelecimentos ",
       price: "$49",
       mostPopular: true,
       buttonText: "Upgrade Now",
       features: [
-        "Enjoy unlimited AI task usage",
-        "Integrate API for smooth workflow",
-        "Create text and image outputs",
-        "Get priority chat and email help",
-        "View detailed analytics and reports",
+        "Impressão de etiquetas básicas",
+        "Impressão de informações nutricionais",
+        "Suporte 7 dias por semana",
+        "Cadastro de fornecedores",
+        "Controle de produtos",
+        "Relatórios Inteligentes",
+        "Comodato de impressora, etiquetas e ribbons",
       ],
     },
     {
@@ -46,67 +53,77 @@ export default function OurPricingSection() {
   ];
 
   return (
-    <section
-      id="pricing"
-      className="mt-27 flex flex-col items-center justify-center"
-    >
+    <section className="mt-30 flex flex-col items-center justify-center">
+      <div className="mb-2 flex w-full items-center justify-center text-[#67d65d]">
+        <Dot className="h-8 w-8 text-[#67d65d]" />
+        <span className="text-[17px] font-semibold">Orçamentos</span>
+      </div>
       <SectionTitle
-        title="Our Pricing Plan"
-        description="Our pricing plans are affordable and flexible, catering to all budgets. Choose the plan that suits your needs best."
+        title={
+          <h3 className="heading-2 text-center text-[#003000] text-[48px]">
+            Nossos Planos
+          </h3>
+        }
+        description={
+          <p className="mt-2 max-w-prose text-center subtitle text-[#003000] text-[18px] ">
+            Planos flexíveis que crescem com o seu negócio. Comece grátis e
+            evolua conforme necessário.
+          </p>
+        }
       />
-      <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-        {data.map((item, index) => (
-          <div key={index} className="group w-full max-w-80">
-            <div
-              className={`flex flex-col items-center justify-center rounded-xl border border-brand-dark/20 p-6 text-center transition-all duration-300 group-hover:-translate-y-1 ${
-                item.mostPopular ? "bg-brand-dark text-white" : "bg-white"
-              }`}
-            >
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p
-                className={
-                  item.mostPopular ? "text-white/80" : "text-brand-dark/70"
-                }
-              >
-                {item.description}
-              </p>
-              <p className="mt-4 text-2xl font-semibold">
-                {item.price}{" "}
-                <span
-                  className={`text-sm font-normal ${
-                    item.mostPopular ? "text-white/80" : "text-brand-dark/70"
-                  }`}
-                >
-                  /month
+      <div className="mt-5 grid w-full grid-cols-1 md:grid-cols-[395px_395px] md:justify-center gap-5">
+        {data.slice(0, 2).map((plan, index) => (
+          <BlurFade key={plan.title} delay={0.15 + index * 0.12}>
+            <article className="relative flex w-[395px] h-[480px] flex-col rounded-[30px] bg-[#c3f5bf] p-6">
+              {plan.mostPopular ? (
+                <span className="absolute right-4 top-4 rounded-full bg-[#67d65d] px-3 py-1 text-xs font-semibold text-white">
+                  POPULAR
                 </span>
-              </p>
+              ) : null}
+
+              <div className="flex flex-col gap-2">
+                <h2 className="text-[22px] font-semibold text-[#003000]">
+                  {plan.title}
+                </h2>
+
+                <p className="mt-1 text-[15px] leading-6 text-[#003000]">
+                  {plan.description}
+                </p>
+              </div>
+
               <button
-                className={`mt-4 w-full rounded-lg py-2.5 font-medium transition ${
-                  item.mostPopular
-                    ? "bg-brand text-brand-dark hover:opacity-90"
-                    : "bg-brand-dark text-white hover:opacity-90"
+                type="button"
+                className={`mt-5 inline-flex h-11 w-full items-center justify-center rounded-[23px] px-5 text-[15px] font-semibold transition-all ${
+                  plan.mostPopular
+                    ? "bg-[#67d65d] text-white shadow-[0_10px_26px_-2px_rgba(103,214,93,0.55),0_18px_48px_-10px_rgba(103,214,93,0.45)] hover:shadow-none"
+                    : "bg-[#003000] text-white/90"
                 }`}
               >
-                {item.buttonText}
+                {plan.buttonText}
               </button>
-            </div>
-            <div className="mt-2 flex flex-col">
-              {item.features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 border-b border-brand-dark/15 py-2.5 text-brand-dark"
-                >
-                  <div className="rounded-full bg-brand-dark p-1">
-                    <CheckIcon
-                      className="size-3 text-white"
-                      strokeWidth={2.5}
-                    />
-                  </div>
-                  {feature}
-                </div>
-              ))}
-            </div>
-          </div>
+
+              <ul className="mt-6 space-y-3">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span
+                      className={`mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full ${
+                        plan.mostPopular ? "bg-[#67d65d]" : "bg-[#003000]"
+                      }`}
+                    >
+                      <CheckIcon
+                        className={`h-3.5 w-3.5 ${
+                          plan.mostPopular ? "text-[#ffffff]" : "text-[#ffffff]"
+                        }`}
+                      />
+                    </span>
+                    <span className="text-[15px] text-[#003000]">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </BlurFade>
         ))}
       </div>
     </section>

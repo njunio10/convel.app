@@ -132,7 +132,7 @@ export default function HeroSection() {
 
       <a
         href="/"
-        className="group mt-8 flex items-center gap-2 rounded-full bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] transition-colors hover:bg-[#d6f9d3] "
+        className="group mt-8 flex items-center gap-2 rounded-[23px] bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] text-[15px] transition-all overflow-visible shadow-[0_10px_26px_-2px_rgba(195,245,191,0.55),0_18px_48px_-10px_rgba(195,245,191,0.45)] hover:shadow-none"
       >
         <span className="text-[#003000] text-[15px]">Faça um orçamento</span>
         <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
