@@ -1,6 +1,6 @@
 import SectionTitle from "../components/section-title";
 import { BlurFade } from "../components/blur-fade";
-import { CheckIcon, Dot } from "lucide-react";
+import { CheckIcon, Dot, ArrowUpRight } from "lucide-react";
 
 export default function OurPricingSection() {
   const data = [
@@ -9,7 +9,7 @@ export default function OurPricingSection() {
       description:
         "Perfeito para restaurantes em crescimento e pequenas redes de restaurantes",
       price: "$19",
-      buttonText: "Get Started",
+      buttonText: "Faça um orçamento",
       features: [
         "Impressão de etiquetas básicas",
         "Impressão de informações nutricionais",
@@ -26,7 +26,7 @@ export default function OurPricingSection() {
         "Para grandes operações e redes de restaurantes com muitos estabelecimentos ",
       price: "$49",
       mostPopular: true,
-      buttonText: "Upgrade Now",
+      buttonText: "Faça um orçamento",
       features: [
         "Impressão de etiquetas básicas",
         "Impressão de informações nutricionais",
@@ -77,7 +77,7 @@ export default function OurPricingSection() {
             <article className="relative flex w-[395px] h-[480px] flex-col rounded-[30px] bg-[#c3f5bf] p-6">
               {plan.mostPopular ? (
                 <span className="absolute right-4 top-4 rounded-full bg-[#67d65d] px-3 py-1 text-xs font-semibold text-white">
-                  POPULAR
+                  Popular
                 </span>
               ) : null}
 
@@ -93,13 +93,14 @@ export default function OurPricingSection() {
 
               <button
                 type="button"
-                className={`mt-5 inline-flex h-11 w-full items-center justify-center rounded-[23px] px-5 text-[15px] font-semibold transition-all ${
+                className={`group mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-[23px] px-5 text-[15px] font-semibold transition-all ${
                   plan.mostPopular
                     ? "bg-[#67d65d] text-white shadow-[0_10px_26px_-2px_rgba(103,214,93,0.55),0_18px_48px_-10px_rgba(103,214,93,0.45)] hover:shadow-none"
-                    : "bg-[#003000] text-white/90"
+                    : "bg-[#003000] text-white/90 hover:bg-[#1a5c1a]"
                 }`}
               >
                 {plan.buttonText}
+                <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
               </button>
 
               <ul className="mt-6 space-y-3">

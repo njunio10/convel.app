@@ -1,6 +1,78 @@
 import SectionTitle from "../components/section-title";
-import { MinusIcon, PlusIcon } from "lucide-react";
-import { useState } from "react";
+import { MinusIcon, PlusIcon, ArrowUpRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+
+function FaqItem({ item, number, open, onClick }) {
+  const contentRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [item.answer]);
+
+  return (
+    <div
+      className={`rounded-[18px]  bg-[#c3f5bf] px-5 py-4 md:px-6 md:py-5 transition-all duration-300 ease-in-out ${
+        open ? "shadow-[0_10px_28px_rgba(0,48,0,0.08)]" : ""
+      }`}
+    >
+      <button
+        type="button"
+        className="flex w-full items-start justify-between gap-4"
+        onClick={onClick}
+      >
+        <div className="flex items-center gap-4 text-left">
+          <span
+            className={`flex h-8 w-8 items-center justify-center rounded-lg bg-[#ffffff] text-[16px] font-semibold text-[#67d65d] transition-all duration-300 ${
+              open
+                ? "shadow-[0_0_15px_rgba(103,214,93,0.8),0_0_25px_rgba(103,214,93,0.5)]"
+                : ""
+            }`}
+          >
+            {number}
+          </span>
+          <span className="text-[20px] font-semibold leading-6 text-[#003000]">
+            {item.question}
+          </span>
+        </div>
+        <span className="inline-flex h-7 w-7 flex-shrink-0 items-center justify-center text-[#67d65d] transition-all duration-300 relative">
+          <MinusIcon
+            className={`h-6 w-6 absolute transition-all duration-300 ${
+              open
+                ? "opacity-100 rotate-0 scale-100"
+                : "opacity-0 rotate-90 scale-0"
+            }`}
+          />
+          <PlusIcon
+            className={`h-6 w-6 absolute transition-all duration-300 ${
+              open
+                ? "opacity-0 rotate-90 scale-0"
+                : "opacity-100 rotate-0 scale-100"
+            }`}
+          />
+        </span>
+      </button>
+      <div
+        style={{
+          maxHeight: open ? `${height}px` : "0px",
+        }}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div ref={contentRef} className="pt-3">
+          <p
+            className={`text-[15px] leading-6 text-[#003000] opacity-80 transition-opacity duration-300 ${
+              open ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {item.answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function FaqSection() {
   const [isOpen, setIsOpen] = useState(0);
@@ -46,6 +118,13 @@ export default function FaqSection() {
         </h3>
         <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
           Aqui está tudo o que você precisa saber antes de começar.
+          <a
+            href="#contato"
+            className="group mt-4 inline-flex items-center gap-2 font-semibold text-[#67d65d] text-[15px] transition-colors "
+          >
+            Fale conosco
+            <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
+          </a>
         </p>
       </div>
       <div className="mx-auto mt-10 w-full max-w-3xl space-y-4">
@@ -53,39 +132,13 @@ export default function FaqSection() {
           const open = isOpen === index;
           const number = String(index + 1).padStart(2, "0");
           return (
-            <div
+            <FaqItem
               key={index}
-              className={`rounded-[18px] border border-[#67d65d]/30 bg-[#c3f5bf] px-5 py-4 md:px-6 md:py-5 ${
-                open ? "shadow-[0_10px_28px_rgba(0,48,0,0.08)]" : ""
-              }`}
-            >
-              <button
-                type="button"
-                className="flex w-full items-start justify-between gap-4"
-                onClick={() => setIsOpen(open ? null : index)}
-              >
-                <div className="flex items-center gap-4 text-left">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#67d65d] text-[13px] font-semibold text-[#003000]">
-                    {number}
-                  </span>
-                  <span className="text-[18px] font-medium leading-6 text-[#003000]">
-                    {item.question}
-                  </span>
-                </div>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#67d65d] text-[#67d65d]">
-                  {open ? (
-                    <MinusIcon className="h-4 w-4" />
-                  ) : (
-                    <PlusIcon className="h-4 w-4" />
-                  )}
-                </span>
-              </button>
-              <div className={`${open ? "block" : "hidden"} pt-3`}>
-                <p className="text-[15px] leading-6 text-[#003000]/80">
-                  {item.answer}
-                </p>
-              </div>
-            </div>
+              item={item}
+              number={number}
+              open={open}
+              onClick={() => setIsOpen(open ? null : index)}
+            />
           );
         })}
       </div>
