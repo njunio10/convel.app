@@ -18,7 +18,7 @@ const WhatsAppIcon = ({ className }) => (
   </svg>
 );
 
-export default function Footer() {
+export default function Footer({ onOpenModal }) {
   return (
     <footer className="px-4 pt-10 text-[#003000] border-t border-brand-dark/20 md:px-16 lg:px-24 bg-[#ffffff]">
       <div className="container-1000">
@@ -110,17 +110,12 @@ export default function Footer() {
               </h2>
               <div className="max-w-xs space-y-6 text-sm">
                 <p>Deixe seu contato e retornaremos o mais breve possível.</p>
-                <form className="flex items-center justify-center gap-2 rounded-[30px] bg-gray-100 p-1.5">
-                  <input
-                    className="w-full max-w-64 rounded-[30px]  px-2 py-2 outline-none"
-                    type="email"
-                    placeholder="Digite seu email"
-                    required
-                  />
-                  <button className="rounded-[30px] bg-[#67d65d] px-4 py-2 text-white transition hover:opacity-90">
-                    Enviar
-                  </button>
-                </form>
+                <button
+                  onClick={onOpenModal}
+                  className="w-full rounded-[30px] bg-[#67d65d] px-6 py-3 text-white transition hover:opacity-90 font-medium"
+                >
+                  Entrar em contato
+                </button>
               </div>
             </div>
           </div>

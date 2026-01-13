@@ -44,7 +44,7 @@ export default function BenefitsSection() {
 
         <div className="mt-10 grid w-full grid-cols-1 gap-5 md:grid-cols-3">
           {steps.map((step, index) => (
-            <BlurFade key={step.label} delay={0.15 + index * 0.12}>
+            <BlurFade key={step.label} delay={0.2 + index * 0.1}>
               <article className="group flex h-[513px] flex-col justify-between rounded-[30px] bg-[#c3f5bf] px-5 pb-7 pt-2.5 text-white">
                 {/* Imagem do sistema no topo do card */}
                 <div className="relative mb-4 flex items-center justify-center">

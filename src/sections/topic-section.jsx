@@ -1,24 +1,26 @@
 import { BlurFade } from "../components/blur-fade";
 import { ArrowUpRight } from "lucide-react";
 
-export default function TopicSection() {
+export default function TopicSection({ onOpenModal }) {
   return (
     <section className="mt-37 flex flex-col items-center justify-center">
       <div className="w-full max-w-6xl">
-        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
-          <h3 className="heading-2 text-left text-[#003000] text-[42px] leading-[1.02] md:col-span-7 md:text-[48px]">
-            Transforme o seu restaurante
-          </h3>
-          <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
-            Veja tudo que você precisa para transformar a gestão do seu
-            restaurante.
-          </p>
-        </div>
+        <BlurFade delay={0.1}>
+          <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
+            <h3 className="heading-2 text-left text-[#003000] text-[42px] leading-[1.02] md:col-span-7 md:text-[48px]">
+              Transforme o seu restaurante
+            </h3>
+            <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
+              Veja tudo que você precisa para transformar a gestão do seu
+              restaurante.
+            </p>
+          </div>
+        </BlurFade>
 
         {/* Grid principal — inspirado no layout do print */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[588px_392px] md:justify-center md:gap-4">
           {/* Card grande 1 */}
-          <BlurFade delay={0.1}>
+          <BlurFade delay={0.2}>
             <article className="group flex flex-col justify-between rounded-[30px] bg-[#c3f5bf] p-3 h-[436px]">
               <div className="relative flex items-center justify-center rounded-[30px] bg-white/95 p-2">
                 <img
@@ -41,7 +43,7 @@ export default function TopicSection() {
           </BlurFade>
 
           {/* Card grande 2 */}
-          <BlurFade delay={0.18}>
+          <BlurFade delay={0.3}>
             <article className="group flex flex-col justify-between rounded-[30px] bg-[#c3f5bf] p-3 h-[436px]">
               <div className="relative flex items-center justify-center rounded-[30px] bg-white/95 p-2">
                 <img
@@ -66,7 +68,7 @@ export default function TopicSection() {
         {/* Linha inferior — três colunas no desktop */}
         <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* Card pequeno 1 */}
-          <BlurFade delay={0.26}>
+          <BlurFade delay={0.4}>
             <article className="group flex flex-col rounded-[30px] bg-[#c3f5bf] p-3 h-[436.8px]">
               <div className="rounded-[30px] bg-white/95 p-2 w-[300px] h-[290px] mx-auto">
                 <img
@@ -87,7 +89,7 @@ export default function TopicSection() {
           </BlurFade>
 
           {/* Card pequeno 2 */}
-          <BlurFade delay={0.32}>
+          <BlurFade delay={0.5}>
             <article className="group flex flex-col rounded-[30px] bg-[#c3f5bf] p-3 h-[436.8px]">
               <div className="rounded-[30px] bg-white/95 p-2 w-[300px] h-[290px] mx-auto">
                 <img
@@ -109,7 +111,7 @@ export default function TopicSection() {
 
           {/* Coluna direita empilhada */}
           <div className="flex flex-col gap-5">
-            <BlurFade delay={0.38}>
+            <BlurFade delay={0.6}>
               <article className="flex flex-col items-center gap-4 rounded-[30px] bg-[#c3f5bf] px-5 py-6 h-[208px]">
                 <div className="flex -space-x-3">
                   <img
@@ -144,7 +146,7 @@ export default function TopicSection() {
               </article>
             </BlurFade>
 
-            <BlurFade delay={0.44}>
+            <BlurFade delay={0.7}>
               <article className="rounded-[30px] bg-[#c3f5bf] px-5 py-6 h-[208px]">
                 <p className="text-lg font-semibold text-[#003000] text-[24px]">
                   Resultados reais
@@ -153,13 +155,13 @@ export default function TopicSection() {
                   Economize tempo e reduza desperdícios. Automação de processos
                   libera tempo.
                 </p>
-                <a
-                  href="#contato"
+                <button
+                  onClick={onOpenModal}
                   className="group mt-4 inline-flex items-center gap-2 font-semibold text-[#003000] text-[17px] transition-colors"
                 >
                   Começar agora
                   <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
-                </a>
+                </button>
               </article>
             </BlurFade>
           </div>

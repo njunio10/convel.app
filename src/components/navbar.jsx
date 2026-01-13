@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({ onOpenModal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -117,15 +117,15 @@ export default function Navbar() {
               )
             )}
           </div>
-          <a
-            href="/"
+          <button
+            onClick={onOpenModal}
             className="relative isolate hidden md:inline-flex items-center gap-2 rounded-[23px] bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] text-[15px] transition-all group overflow-visible shadow-[0_10px_26px_-2px_rgba(195,245,191,0.55),0_18px_48px_-10px_rgba(195,245,191,0.45)] hover:shadow-none"
           >
             <span className="relative z-10 inline-flex items-center gap-2">
               Fale Conosco
               <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
             </span>
-          </a>
+          </button>
           <button
             onClick={() => setIsOpen(true)}
             className="transition active:scale-90 md:hidden"

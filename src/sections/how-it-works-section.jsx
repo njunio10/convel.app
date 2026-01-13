@@ -69,7 +69,7 @@ export default function HowItWorksSection() {
 
       <div className="mt-10 grid w-full max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((item, index) => (
-          <BlurFade key={index} delay={0.2 + index * 0.08}>
+          <BlurFade key={index} delay={0.2 + index * 0.1}>
             <div className="h-full w-full transition-transform duration-300 hover:-translate-y-1">
               <div className="relative mx-auto flex h-[236px] w-[320px] flex-col items-start rounded-[30px] bg-[#c3f5bf] p-6 sm:p-8 shadow-sm group">
                 <div className="w-[56px] h-[56px] rounded-[12px] bg-[#ffffff] p-3 mb-4 transition-all duration-300 group-hover:bg-[#ffffff] group-hover:shadow-[0_0_32px_#6fe965] group-hover:scale-105">

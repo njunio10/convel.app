@@ -75,7 +75,7 @@ function FaqItem({ item, number, open, onClick }) {
   );
 }
 
-export default function FaqSection() {
+export default function FaqSection({ onOpenModal }) {
   const [isOpen, setIsOpen] = useState(0);
   const data = [
     {
@@ -120,22 +120,22 @@ export default function FaqSection() {
           </h3>
           <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
             Aqui está tudo o que você precisa saber antes de começar.
-            <a
-              href="#contato"
+            <button
+              onClick={onOpenModal}
               className="group mt-4 inline-flex items-center gap-2 font-semibold text-[#67d65d] text-[15px] transition-colors "
             >
               Fale conosco
               <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
-            </a>
+            </button>
           </p>
         </div>
       </BlurFade>
-      <div className="mx-auto mt-10 w-full max-w-3xl space-y-4">
+      <div className="mx-auto mt-10 w-full space-y-4">
         {data.map((item, index) => {
           const open = isOpen === index;
           const number = String(index + 1).padStart(2, "0");
           return (
-            <BlurFade key={index} delay={0.2 + index * 0.06}>
+            <BlurFade key={index} delay={0.2 + index * 0.1}>
               <FaqItem
                 item={item}
                 number={number}

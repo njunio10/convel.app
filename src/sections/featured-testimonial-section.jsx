@@ -2,7 +2,7 @@ import { CheckCircle2, ArrowUpRight, Heart } from "lucide-react";
 import { HeroVideoDialog } from "@/registry/magicui/hero-video-dialog";
 import { BlurFade } from "../components/blur-fade";
 
-export default function FeaturedTestimonialSection() {
+export default function FeaturedTestimonialSection({ onOpenModal }) {
   return (
     <section className="mt-25 w-full">
       <BlurFade delay={0.1}>
@@ -38,13 +38,13 @@ export default function FeaturedTestimonialSection() {
               </h2>
 
               {/* CTA */}
-              <a
-                href="#contato"
+              <button
+                onClick={onOpenModal}
                 className="group mt-6 inline-flex items-center gap-2 font-semibold text-[#003000] text-[15px] transition-colors"
               >
                 Começar agora
                 <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import SectionTitle from "../components/section-title";
 import { BlurFade } from "../components/blur-fade";
 import { CheckIcon, Dot, ArrowUpRight } from "lucide-react";
 
-export default function OurPricingSection() {
+export default function OurPricingSection({ onOpenModal }) {
   const data = [
     {
       title: "Profissional",
@@ -54,13 +54,11 @@ export default function OurPricingSection() {
 
   return (
     <section className="mt-30 flex flex-col items-center justify-center">
-      <BlurFade delay={0.05}>
+      <BlurFade delay={0.1}>
         <div className="mb-2 flex w-full items-center justify-center text-[#67d65d]">
           <Dot className="h-8 w-8 text-[#67d65d]" />
           <span className="text-[17px] font-semibold">Orçamentos</span>
         </div>
-      </BlurFade>
-      <BlurFade delay={0.1}>
         <SectionTitle
           title={
             <h3 className="heading-2 text-center text-[#003000] text-[48px]">
@@ -77,7 +75,7 @@ export default function OurPricingSection() {
       </BlurFade>
       <div className="mt-5 grid w-full grid-cols-1 md:grid-cols-[395px_395px] md:justify-center gap-5">
         {data.slice(0, 2).map((plan, index) => (
-          <BlurFade key={plan.title} delay={0.15 + index * 0.12}>
+          <BlurFade key={plan.title} delay={0.2 + index * 0.1}>
             <article className="relative flex w-[395px] h-[480px] flex-col rounded-[30px] bg-[#c3f5bf] p-6">
               {plan.mostPopular ? (
                 <span className="absolute right-4 top-4 rounded-full bg-[#67d65d] px-3 py-1 text-xs font-semibold text-white">
@@ -97,6 +95,7 @@ export default function OurPricingSection() {
 
               <button
                 type="button"
+                onClick={onOpenModal}
                 className={`group mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-[23px] px-5 text-[15px] font-semibold transition-all ${
                   plan.mostPopular
                     ? "bg-[#67d65d] text-white shadow-[0_10px_26px_-2px_rgba(103,214,93,0.55),0_18px_48px_-10px_rgba(103,214,93,0.45)] hover:shadow-none"

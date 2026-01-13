@@ -1,8 +1,4 @@
 import {
-  ArrowRightIcon,
-  CheckIcon,
-  ChevronRight,
-  ArrowRight,
   ArrowUpRight,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -53,7 +49,7 @@ function useStraightenOnScroll3D({
   return { containerRef, transform };
 }
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenModal }) {
   const { containerRef, transform } = useStraightenOnScroll3D({
     initialRotateX: 8,
     initialTranslateZ: 40,
@@ -130,13 +126,13 @@ export default function HeroSection() {
         nutricionais com segurança, organização e tranquilidade.
       </p>
 
-      <a
-        href="/"
+      <button
+        onClick={onOpenModal}
         className="group mt-8 flex items-center gap-2 rounded-[23px] bg-[#c3f5bf] px-8 py-3 font-medium text-[#003000] text-[15px] transition-all overflow-visible shadow-[0_10px_26px_-2px_rgba(195,245,191,0.55),0_18px_48px_-10px_rgba(195,245,191,0.45)] hover:shadow-none"
       >
         <span className="text-[#003000] text-[15px]">Faça um orçamento</span>
         <ArrowUpRight className="size-5 transition-transform duration-500 ease-out group-hover:rotate-45" />
-      </a>
+      </button>
 
       <div
         ref={containerRef}
