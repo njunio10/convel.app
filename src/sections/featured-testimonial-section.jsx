@@ -33,8 +33,8 @@ export default function FeaturedTestimonialSection() {
               {/* Citação principal */}
               <h2 className="mt-4 text-xl font-semibold leading-snug text-[#000300] sm:text-2xl md:text-3xl">
                 "Com a Convel, finalmente parei de me preocupar com o fluxo de
-                caixa. Eu sei para onde meu dinheiro está indo — e estou realmente
-                economizando."
+                caixa. Eu sei para onde meu dinheiro está indo — e estou
+                realmente economizando."
               </h2>
 
               {/* CTA */}
