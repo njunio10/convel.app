@@ -1,6 +1,7 @@
 import SectionTitle from "../components/section-title";
 import { MinusIcon, PlusIcon, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { BlurFade } from "../components/blur-fade";
 
 function FaqItem({ item, number, open, onClick }) {
   const contentRef = useRef(null);
@@ -111,34 +112,37 @@ export default function FaqSection() {
 
   return (
     <section className="mt-37 flex flex-col items-center justify-center">
-      <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
-        <h3 className="heading-2 text-left text-[#003000] text-[42px] leading-[1.02] md:col-span-7 md:text-[48px]">
-          Tem perguntas? <br />
-          Nós temos respostas.
-        </h3>
-        <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
-          Aqui está tudo o que você precisa saber antes de começar.
-          <a
-            href="#contato"
-            className="group mt-4 inline-flex items-center gap-2 font-semibold text-[#67d65d] text-[15px] transition-colors "
-          >
-            Fale conosco
-            <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
-          </a>
-        </p>
-      </div>
+      <BlurFade delay={0.1}>
+        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
+          <h3 className="heading-2 text-left text-[#003000] text-[42px] leading-[1.02] md:col-span-7 md:text-[48px]">
+            Tem perguntas? <br />
+            Nós temos respostas.
+          </h3>
+          <p className="mt-2 max-w-prose text-left subtitle text-[#003000] text-[18px] md:col-start-9 md:col-span-4 md:mt-0">
+            Aqui está tudo o que você precisa saber antes de começar.
+            <a
+              href="#contato"
+              className="group mt-4 inline-flex items-center gap-2 font-semibold text-[#67d65d] text-[15px] transition-colors "
+            >
+              Fale conosco
+              <ArrowUpRight className="size-6 transition-transform duration-500 ease-out group-hover:rotate-45" />
+            </a>
+          </p>
+        </div>
+      </BlurFade>
       <div className="mx-auto mt-10 w-full max-w-3xl space-y-4">
         {data.map((item, index) => {
           const open = isOpen === index;
           const number = String(index + 1).padStart(2, "0");
           return (
-            <FaqItem
-              key={index}
-              item={item}
-              number={number}
-              open={open}
-              onClick={() => setIsOpen(open ? null : index)}
-            />
+            <BlurFade key={index} delay={0.2 + index * 0.06}>
+              <FaqItem
+                item={item}
+                number={number}
+                open={open}
+                onClick={() => setIsOpen(open ? null : index)}
+              />
+            </BlurFade>
           );
         })}
       </div>

@@ -20,7 +20,7 @@ const WhatsAppIcon = ({ className }) => (
 
 export default function Footer() {
   return (
-    <footer className="px-4 pt-10 text-[#003000] border-t border-[#67d65d] md:px-16 lg:px-24 bg-[#ffffff]">
+    <footer className="px-4 pt-10 text-[#003000] border-t border-brand-dark/20 md:px-16 lg:px-24 bg-[#ffffff]">
       <div className="container-1000">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:gap-16">
           <div className="flex-1">
@@ -125,7 +125,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-[#67d65d] py-4 md:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-brand-dark/20 py-4 md:flex-row">
           <p className="text-center">
             Copyright 2025 ©{" "}
             <a href="https://prebuiltui.com?utm_source=slidex">Convel</a> All

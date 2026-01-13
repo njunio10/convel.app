@@ -54,23 +54,27 @@ export default function OurPricingSection() {
 
   return (
     <section className="mt-30 flex flex-col items-center justify-center">
-      <div className="mb-2 flex w-full items-center justify-center text-[#67d65d]">
-        <Dot className="h-8 w-8 text-[#67d65d]" />
-        <span className="text-[17px] font-semibold">Orçamentos</span>
-      </div>
-      <SectionTitle
-        title={
-          <h3 className="heading-2 text-center text-[#003000] text-[48px]">
-            Nossos Planos
-          </h3>
-        }
-        description={
-          <p className="mt-2 max-w-prose text-center subtitle text-[#003000] text-[18px] ">
-            Planos flexíveis que crescem com o seu negócio. Comece grátis e
-            evolua conforme necessário.
-          </p>
-        }
-      />
+      <BlurFade delay={0.05}>
+        <div className="mb-2 flex w-full items-center justify-center text-[#67d65d]">
+          <Dot className="h-8 w-8 text-[#67d65d]" />
+          <span className="text-[17px] font-semibold">Orçamentos</span>
+        </div>
+      </BlurFade>
+      <BlurFade delay={0.1}>
+        <SectionTitle
+          title={
+            <h3 className="heading-2 text-center text-[#003000] text-[48px]">
+              Nossos Planos
+            </h3>
+          }
+          description={
+            <p className="mt-2 max-w-prose text-center subtitle text-[#003000] text-[18px] ">
+              Planos flexíveis que crescem com o seu negócio. Comece grátis e
+              evolua conforme necessário.
+            </p>
+          }
+        />
+      </BlurFade>
       <div className="mt-5 grid w-full grid-cols-1 md:grid-cols-[395px_395px] md:justify-center gap-5">
         {data.slice(0, 2).map((plan, index) => (
           <BlurFade key={plan.title} delay={0.15 + index * 0.12}>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Banner from "./components/banner";
 import LenisScroll from "./components/lenis-scroll";
 import Navbar from "./components/navbar";
@@ -14,6 +15,12 @@ import FaqSection from "./sections/faq-section";
 import CallToActionSection from "./sections/call-to-action-section";
 
 export default function App() {
+  // Força scroll para o topo ao carregar/recarregar a página
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <LenisScroll />

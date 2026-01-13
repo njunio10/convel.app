@@ -1,6 +1,7 @@
 import SectionTitle from "../components/section-title";
 import { cn } from "../lib/utils";
 import { Marquee } from "../components/marquee";
+import { BlurFade } from "../components/blur-fade";
 
 function QuoteIcon({ className }) {
   return (
@@ -98,15 +99,17 @@ function ReviewCard({ img, name, username, body }) {
 export default function OurTestimonialSection() {
   return (
     <section className="mt-27 flex w-full flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="mt-15 w-[1000px] grid gap-6 md:grid-cols-12 md:items-start md:gap-12">
-        <h3 className="heading-2 text-brand-dark text-left text-[48px] md:col-span-7">
-          O que nossos clientes dizem
-        </h3>
-        <p className="subtitle text-[#003000] text-left text-[18px] md:col-start-9 md:col-span-4 md:mt-1">
-          Vários clientes já transformaram sua gestão com a Convel. Confira
-          algumas avaliações parceiras.
-        </p>
-      </div>
+      <BlurFade delay={0.1}>
+        <div className="mt-15 w-[1000px] grid gap-6 md:grid-cols-12 md:items-start md:gap-12">
+          <h3 className="heading-2 text-brand-dark text-left text-[48px] md:col-span-7">
+            O que nossos clientes dizem
+          </h3>
+          <p className="subtitle text-[#003000] text-left text-[18px] md:col-start-9 md:col-span-4 md:mt-1">
+            Vários clientes já transformaram sua gestão com a Convel. Confira
+            algumas avaliações parceiras.
+          </p>
+        </div>
+      </BlurFade>
 
       <div className="relative flex  w-[1000px] flex-col items-center justify-center overflow-hidden py-6">
         <Marquee className="[--duration:60s]">
